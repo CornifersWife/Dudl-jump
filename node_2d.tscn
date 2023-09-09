@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjghlkehbe3rd"]
+
+[ext_resource type="Texture2D" uid="uid://boefkexgodofu" path="res://resources/pixil-frame-0.png" id="1_tv73h"]
+[ext_resource type="Script" path="res://Sprite2D.gd" id="2_ba54x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wop76"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kcj4e"]
+resource_local_to_scene = true
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+top_level = true
+position = Vector2(100, 192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_wop76")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_kcj4e")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/AnimatedSprite2D"]
+texture = ExtResource("1_tv73h")
+script = ExtResource("2_ba54x")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 200.0
+offset_bottom = 200.0
+color = Color(0.443137, 0.67451, 1, 1)
